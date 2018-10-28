@@ -1,0 +1,22 @@
+model = DeepPose 
+TargetType = direct
+
+### DeepPose
+baseName: resnet34
+###
+data_loader_size = 16
+#
+#
+#loadModel = ../../trainedModels/deepPose.pth
+
+mini_batch_count: 1
+optimizer_type: RMSprop
+LR: 2.5e-4
+
+dropLR: 5
+dropMag: 0.7
+
+valInterval: 3
+saveInterval: 5
+
+outputRes = 32

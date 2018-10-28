@@ -1,0 +1,15 @@
+model = ChainedPredictions
+TargetType = heatmap
+outputRes = 32
+
+### Chained
+modelName: resnet34
+ohKernel: 1
+hhKernel: 1
+###
+data_loader_size = 16
+#
+#
+loadModel = 'path-to-model'
+
+outputRes = 32

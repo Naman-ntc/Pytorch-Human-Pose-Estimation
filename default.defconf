@@ -1,0 +1,38 @@
+expDir: exp
+expID: debug
+
+visdom: 0
+
+model: ChainedPredictions
+
+dataDir: ../../data2
+scale: 0.25
+rotate: 30
+nJoints: 16
+inputDim: 256
+inputRes: 256
+imageRes: 280
+hmGauss: 1
+hmGaussInp: 20
+
+
+nJoints: 16
+
+dataset: MPII
+shuffle: 0
+augment: 0
+
+nThreads: 4
+
+gpuid: 1
+nEpochs: 200
+
+
+
+maxScale: 0.2
+maxRotate: 30
+translate: 0.02
+
+worldCoors = ../../trainedModels/worldCoods.mat
+headSize = ../../trainedModels/headsize.mat
+
