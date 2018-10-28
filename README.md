@@ -26,7 +26,9 @@ Authors : [Naman Jain](https://github.com/Naman-ntc) and [Sahil Shah](https://gi
 
 ## Installation & Setup
 `pip install -r requirements.txt`
+
 For setting up MPII dataset please follow [this link](https://github.com/princeton-vl/pose-hg-train#getting-started)
+
 For setting up COCO dataset please follow [this link](https://github.com/Microsoft/human-pose-estimation.pytorch#quick-start)
 
 ## Usage
