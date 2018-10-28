@@ -37,12 +37,14 @@ Two sets of conf files are required `train/` and `val` for all networks. As it i
 Model specific config files contain options for models such as number of layers, base network etc.
 
 To train a model:
-	```python main.py -c conf/train/[Model-Name].conf
+	```
+	python main.py -c conf/train/[Model-Name].conf
 	-c 	path to the config file containing all options
 	```
 
 To validate a model:
-	```python main.py -c conf/val/[Model-Name].conf --loadModel [Path-To-Model] -test 
+	```
+	python main.py -c conf/val/[Model-Name].conf --loadModel [Path-To-Model] -test 
 	-c 	path to the config file containing all options
 	--loadModel  Path to the saved model
 	```
@@ -52,5 +54,6 @@ To validate a model:
 * Add visualizations and visualization code
 * Add code for COCO dataset
 * Add more models
+
 I plan (and will try) to complete these very soon!!
 
