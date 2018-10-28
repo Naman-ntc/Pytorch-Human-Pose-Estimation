@@ -18,11 +18,11 @@ Authors : [Naman Jain](https://github.com/Naman-ntc) and [Sahil Shah](https://gi
 * [COCO](http://cocodataset.org/#home)
 
 ## Requirements
-pytorch == 0.4.1
-torchvision ==0.2.0
-scipy
-configargpare
-progress
+* pytorch == 0.4.1
+* torchvision ==0.2.0
+* scipy
+* configargpare
+* progress
 
 ## Installation & Setup
 `pip install -r requirements.txt`
@@ -37,15 +37,15 @@ Two sets of conf files are required `train/` and `val` for all networks. As it i
 Model specific config files contain options for models such as number of layers, base network etc.
 
 To train a model:
-	`python main.py -c conf/train/[Model-Name].conf
+	```python main.py -c conf/train/[Model-Name].conf
 	-c 	path to the config file containing all options
-	`
+	```
 
 To validate a model:
-	`python main.py -c conf/val/[Model-Name].conf --loadModel [Path-To-Model] -test 
+	```python main.py -c conf/val/[Model-Name].conf --loadModel [Path-To-Model] -test 
 	-c 	path to the config file containing all options
 	--loadModel  Path to the saved model
-	`
+	```
 
 ## To Do
 * Add links to pretrained models
