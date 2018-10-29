@@ -9,7 +9,7 @@ Some visualizations from pretrained models:
 
 ## Networks Implemented
 * [DeepPose](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/42237.pdf) - multiple resnet/inception base networks [Pretrained Models Available (MPII and COCO)]
-* [Stacked HourGlass Network](https://arxiv.org/pdf/1603.06937.pdf) - standard hoyurglass architecture [Pretrained Models Available (MPII and COCO)]
+* [Stacked HourGlass Network](https://arxiv.org/pdf/1603.06937.pdf) - standard hourglass architecture [Pretrained Models Available (MPII and COCO)]
 * [Chained Predictions Network](https://arxiv.org/pdf/1605.02346.pdf) - Sequential prediction of joints [Pretrained Models Available (MPII and COCO)]
 * [Pose-Attention](https://arxiv.org/pdf/1702.07432.pdf) - soft attention network
 * [PyraNet](https://arxiv.org/pdf/1708.01101.pdf) - pyramid residual modules, fractional maxpooling
@@ -37,7 +37,7 @@ For setting up MPII dataset please follow [this link](https://github.com/princet
 For setting up COCO dataset please follow [this link](https://github.com/Microsoft/human-pose-estimation.pytorch#quick-start)
 
 ## Usage
-`conf` folder contains the configration files for various different networks along with their options. You can manually tweak different options as per your usage.
+`conf` folder contains the configuration files for various different networks along with their options. You can manually tweak different options as per your usage.
 Two sets of conf files are required `train/` and `val` for all networks. As it is obvious train files need to be used while training and val files during testing.
 
 `default.defconf` contains generic options for all models such as data-preprocessing, data-path, general optimizer, general training schedule.
@@ -62,5 +62,5 @@ python main.py -c conf/val/[Model-Name].conf --loadModel [Path-To-Model] -test
 * Add code for COCO dataset
 * Add more models
 
-I plan (and will try) to complete these very soon!!
+We plan (and will try) to complete these very soon!!
 
