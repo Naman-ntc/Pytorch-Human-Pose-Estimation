@@ -5,7 +5,7 @@ Authors : [Naman Jain](https://github.com/Naman-ntc) and [Sahil Shah](https://gi
 Some visualizations from pretrained models:
 
 ------------------------
-![3.png](https://raw.githubusercontent.com/Naman-ntc/Pytorch-Human-Pose-Estimation/master/vis/3.png) | ![42.png](https://raw.githubusercontent.com/Naman-ntc/Pytorch-Human-Pose-Estimation/master/vis/42.png)
+![3.png](./vis/3.png) | ![42.png](./vis/42.png)
 
 ## Networks Implemented
 * [DeepPose](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/42237.pdf) - multiple resnet/inception base networks [Pretrained Models Available (MPII and COCO)]
