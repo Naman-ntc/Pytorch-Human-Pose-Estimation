@@ -1,0 +1,32 @@
+expDir: exp
+expID: debug
+
+visdom: 0
+
+dataDir: ../data2
+
+maxTranslate: 0.02
+maxScale: 0.25
+maxRotate: 30
+
+inputRes: 256
+imageRes: 280
+hmGauss: 1
+
+nJoints: 16
+
+
+nJoints: 16
+
+dataset: MPII
+shuffle: 1
+
+nThreads: 4
+
+gpuid: 1
+nEpochs: 200
+
+
+worldCoors = ../mpii/worldCoods.mat
+headSize = ../mpii/headsize.mat
+

@@ -28,39 +28,62 @@ Some visualizations from pretrained models:
 * scipy
 * configargpare
 * progress
+* json_tricks
+* Cython
 
 ## Installation & Setup
 `pip install -r requirements.txt`
 
-For setting up MPII dataset please follow [this link](https://github.com/princeton-vl/pose-hg-train#getting-started)
+For setting up MPII dataset please follow [this link](https://github.com/princeton-vl/pose-hg-train#getting-started) and update the `dataDir` parameter in [mpii.defconf](./conf/datasets/mpii.defconf) configration file. Also please download and unzip [this folder](https://www.cse.iitb.ac.in/~namanjain/mpii.zip) and updates the paths for `worldCoors` & `headSize` in the config file.
 
-For setting up COCO dataset please follow [this link](https://github.com/Microsoft/human-pose-estimation.pytorch#quick-start)
+For setting up COCO dataset please follow [this link](https://github.com/Microsoft/human-pose-estimation.pytorch#quick-start) and update the `dataDir` parameter in [coco.defconf](./conf/datasets/coco.defconf)
 
 ## Usage
-`conf` folder contains the configuration files for various different networks along with their options. You can manually tweak different options as per your usage.
-Two sets of conf files are required `train/` and `val` for all networks. As it is obvious train files need to be used while training and val files during testing.
+There are two important parameters that are required for running, `DataConfig` and `ModelConfig`. 
+Corresponding to both datasets (MPII & COCO) config files are provided in the `conf/datasets` folder. 
+Corresponding to all models implemented config files are provided in `conf/models` folder. 
 
-`default.defconf` contains generic options for all models such as data-preprocessing, data-path, general optimizer, general training schedule.
-Model specific config files contain options for models such as number of layers, base network etc.
-
-To train a model:
+To train a model please use
 ```
-python main.py -c conf/train/[Model-Name].conf
--c 	path to the config file containing all options
+python main.py -DataConfig conf/datasets/[DATA].defconf -ModelConfig conf/models/[MODEL_NAME].defconf
+-ModelConfig config file for the model to use
+-DataConfig config file for the dataset to use
 ```
 
-To validate a model:
+To continue training a pretrained model please use
 ```
-python main.py -c conf/val/[Model-Name].conf --loadModel [Path-To-Model] -test 
--c 	path to the config file containing all options
---loadModel  Path to the saved model
+python main.py -DataConfig conf/datasets/[DATA].defconf -ModelConfig conf/models/[MODEL_NAME].defconf --loadModel [PATH_TO_MODEL]
+-ModelConfig config file for the model to use
+-DataConfig config file for the dataset to use
+--loadModel path to the .pth file for the model (containing state dicts of model, optimizer and epoch number)
+(use [-test] to run only the test epoch)
 ```
+
+Further options can (and should!) be tweaked from the model and data config files (in the `conf` folder).
+
+The training window looks like this (Live-Updating Progress Bar Support): 
+![progress.png](./vis/progress.png)
+
+To download the pretrained-models please use [this link](https://www.cse.iitb.ac.in/~namanjain/models.zip).
+
+## PreTrained Models
+Model | DataSet | Performance
+--- | --- | ---
+ChainedPredictions | MPII | PCKh : 81.8
+StachedHourGlass |  MPII | PCKh : 87.6
+DeepPose |  MPII | PCKh : 54.2
+ChainedPredictions | COCO | PCK : 82
+StachedHourGlass | COCO | PCK : 84.7
+DeepPose | COCO | PCK : 70.4	
+
+## Acknowledgements
+We used help of various open source implementations. We would like to thank [Microsoft Human Pose Estimation](https://github.com/Microsoft/human-pose-estimation.pytorch) for providing dataloader for COCO, [Xingi Zhou's 3D Hourglass Repo](https://github.com/xingyizhou/pytorch-pose-hg-3d) for MPII dataloader and HourGlass Pytorch Codebase. We would also like to thank [PyraNet](https://github.com/bearpaw/PyraNet) & [Attention-HourGlass](https://github.com/bearpaw/pose-attention) for open-sourcing their code in lua.
 
 ## To Do
-* Add links to pretrained models
-* Add visualizations and visualization code
-* Add code for COCO dataset
+* Implement code for showing the MAP performance on the COCO dataset
+* Add visualization code
 * Add more models
+* Add visdom support
 
 We plan (and will try) to complete these very soon!!
 

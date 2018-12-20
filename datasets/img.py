@@ -1,11 +1,10 @@
 import cv2
-import ref
 import torch
 import numpy as np
 import torch
 from math import *
 
-sigma_inp = ref.hmGaussInp
+sigma_inp = 20#ref.hmGaussInp
 n = sigma_inp * 6 + 1
 g_inp = np.zeros((n, n))
 for i in range(n):
@@ -194,6 +193,8 @@ def Flip(img):
 	return img[:, :, ::-1].copy()
 
 def ShuffleLR(x):
-	for e in ref.shuffleRef:
+	shuffleRef = [[0, 5], [1, 4], [2, 3],
+             [10, 15], [11, 14], [12, 13]]
+	for e in shuffleRef:
 		x[e[0]], x[e[1]] = x[e[1]].copy(), x[e[0]].copy()
 	return x

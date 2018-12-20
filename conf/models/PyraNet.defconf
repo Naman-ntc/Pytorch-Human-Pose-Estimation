@@ -1,0 +1,27 @@
+model = PyraNet
+TargetType: heatmap
+outputRes: 64
+
+### PyraNet
+nChannels: 256
+nStack: 2
+nModules: 2
+nReductions: 4
+baseWidth: 6
+cardinality:30
+
+###
+data_loader_size = 6
+#
+#
+#loadModel = ../../trainedModels/simpleHG.pth
+
+mini_batch_count: 1
+optimizer_type: RMSprop
+LR: 2.5e-4
+
+dropLR: 50
+dropMag: 0.1
+
+valInterval: 4
+saveInterval: 8

@@ -2,7 +2,7 @@ import torch
 import models
 import losses
 import metrics
-import dataloaders
+import dataloaders as dataloaders
 
 
 class Builder(object):
@@ -11,7 +11,7 @@ class Builder(object):
 		super(Builder, self).__init__()
 		self.opts = opts
 		if opts.loadModel is not None:
-			self.states = torch.load(opts.loadModel, map_location={'cuda:1' : 'cuda:' + str(opts.gpuid), 'cuda:0' : 'cuda:' + str(opts.gpuid)})
+			self.states = torch.load(opts.loadModel)
 		else:
 			self.states = None
 	def Model(self):
@@ -19,9 +19,13 @@ class Builder(object):
 		if self.opts.model == 'StackedHourGlass':
 			Model = ModelBuilder(self.opts.nChannels, self.opts.nStack, self.opts.nModules, self.opts.nReductions, self.opts.nJoints)
 		elif self.opts.model == 'ChainedPredictions':
-			Model = ModelBuilder(self.opts.modelName, self.opts.hhKernel, self.opts.ohKernel, self.opts.nJoints)	
+			Model = ModelBuilder(self.opts.modelName, self.opts.hhKernel, self.opts.ohKernel, self.opts.nJoints)
 		elif self.opts.model == 'DeepPose':
-			Model = ModelBuilder(self.opts.nJoints, self.opts.baseName)	
+			Model = ModelBuilder(self.opts.nJoints, self.opts.baseName)
+		elif self.opts.model == 'PyraNet':
+			Model = ModelBuilder(self.opts.nChannels, self.opts.nStack, self.opts.nModules, self.opts.nReductions, self.opts.baseWidth, self.opts.cardinality, self.opts.nJoints, self.opts.inputRes)
+		elif self.opts.model == 'PoseAttention':
+			Model = ModelBuilder(self.opts.nChannels, self.opts.nStack, self.opts.nModules, self.opts.nReductions, self.opts.nJoints, self.LRNSize, self.opts.IterSize)
 		else:
 			assert('Not Implemented Yet!!!')
 		if self.states is not None:
@@ -30,12 +34,16 @@ class Builder(object):
 
 	def Loss(self):
 		instance = losses.Loss(self.opts)
-		return getattr(instance, self.opts.model)#{'MSELoss' : getattr(instance, self.opts.model)}
+		return getattr(instance, self.opts.model)
 
 	def Metric(self):
-		instance = metrics.PCKh(self.opts)
-		return {'PCKh' : getattr(instance, self.opts.model)}
-
+		PCKhinstance = metrics.PCKh(self.opts)
+		PCKinstance = metrics.PCK(self.opts)
+		if self.opts.dataset=='MPII':
+			return {'PCK' : getattr(PCKinstance, self.opts.model), 'PCKh' : getattr(PCKhinstance, self.opts.model)}         
+		if self.opts.dataset=='COCO':
+			return {'PCK' : getattr(PCKinstance, self.opts.model)}
+			
 	def Optimizer(self, Model):
 		TrainableParams = filter(lambda p: p.requires_grad, Model.parameters())
 		Optimizer = getattr(torch.optim, self.opts.optimizer_type)(TrainableParams, lr = self.opts.LR, alpha = 0.99, eps = 1e-8)

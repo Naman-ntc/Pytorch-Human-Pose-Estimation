@@ -1,0 +1,24 @@
+expDir: exp
+expID: debug
+
+visdom: 0
+
+dataDir: ../cocoData
+maxScale: 0.3
+maxRotate: 40
+maxTranslate: 0.02
+hmGauss: 2
+
+inputRes: 256
+imageRes: 280
+hmGauss: 1
+
+nJoints: 17
+
+dataset: COCO
+shuffle: 1
+
+nThreads: 4
+
+gpuid: 1
+nEpochs: 200

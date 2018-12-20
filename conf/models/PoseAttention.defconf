@@ -7,6 +7,9 @@ nChannels: 256
 nStack: 2
 nModules: 2
 nReductions: 4
+LRNSize : 1
+IterSize : 3
+
 ###
 data_loader_size = 6
 #
@@ -22,5 +25,3 @@ dropMag: 0.1
 
 valInterval: 4
 saveInterval: 8
-
-outputRes = 32

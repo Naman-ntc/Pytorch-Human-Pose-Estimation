@@ -23,7 +23,7 @@ Epoch = Builder.Epoch()
 Model = Model.to(opts.gpuid)
 
 # opts.saveDir = os.path.join(opts.saveDir, os.path.join(opts.model, 'logs_{}'.format(datetime.datetime.now().isoformat())))
-File = os.path.join(opts.saveDir + 'log.txt')
+File = os.path.join(opts.saveDir, 'log.txt')
 
 Trainer = trainer.Trainer(Model, Optimizer, Loss, Metrics, File, None, opts)
 
