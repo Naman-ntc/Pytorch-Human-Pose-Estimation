@@ -8,15 +8,28 @@ Some visualizations from pretrained models:
 ![3.png](./vis/3.png) | ![42.png](./vis/42.png)
 
 ## Networks Implemented
-* [DeepPose](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/42237.pdf) - multiple resnet/inception base networks [Pretrained Models Available (MPII and COCO)]
-* [Stacked HourGlass Network](https://arxiv.org/pdf/1603.06937.pdf) - standard hourglass architecture [Pretrained Models Available (MPII and COCO)]
-* [Chained Predictions Network](https://arxiv.org/pdf/1605.02346.pdf) - Sequential prediction of joints [Pretrained Models Available (MPII and COCO)]
-* [Pose-Attention](https://arxiv.org/pdf/1702.07432.pdf) - soft attention network
-* [PyraNet](https://arxiv.org/pdf/1708.01101.pdf) - pyramid residual modules, fractional maxpooling
+* [DeepPose: Human Pose Estimation via Deep Neural Networks](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/42237.pdf) :
+  
+  multiple resnet/inception base networks [Pretrained Models Available (MPII and COCO)]
+* [Stacked Hourglass Networks for
+Human Pose Estimation](https://arxiv.org/pdf/1603.06937.pdf) :
+  
+  standard hourglass architecture [Pretrained Models Available (MPII and COCO)]
+* [Chained Predictions Using Convolutional Neural
+Networks](https://arxiv.org/pdf/1605.02346.pdf) :
+  
+  Sequential prediction of joints [Pretrained Models Available (MPII and COCO)]
+* [Multi-Context Attention for Human Pose Estimation (Pose-Attention)](https://arxiv.org/pdf/1702.07432.pdf) :
+  
+  Uses soft attention in heatmaps to locate joints
+* [Learning Feature Pyramids for Human Pose Estimation (PyraNet)](https://arxiv.org/pdf/1708.01101.pdf) :
+  
+  pyramid residual modules, fractional maxpooling
 
 ### Upcoming Networks
-* [IEF](https://arxiv.org/pdf/1507.06550.pdf)
-* [DLCM](http://openaccess.thecvf.com/content_ECCV_2018/papers/Wei_Tang_Deeply_Learned_Compositional_ECCV_2018_paper.pdf)
+* [Human Pose Estimation with Iterative Error Feedback (IEF)](https://arxiv.org/pdf/1507.06550.pdf)
+* [Deeply Learned Compositional Models for
+Human Pose Estimation (DLCM)](http://openaccess.thecvf.com/content_ECCV_2018/papers/Wei_Tang_Deeply_Learned_Compositional_ECCV_2018_paper.pdf)
 
 ## Datasets
 * [MPII](http://human-pose.mpi-inf.mpg.de/)
