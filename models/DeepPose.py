@@ -11,6 +11,6 @@ class DeepPose(nn.Module):
 		self.nJoints = nJoints
 		self.block = 'BottleNeck' if (int(modelName[6:]) > 34) else 'BasicBlock'
 		self.resnet = getattr(torchvision.models, modelName)(pretrained=True)
-		self.resnet.fc = nn.Linear(512*4 * (4 if self.block == 'BottleNeck' else 1), self.nJoints * 2)
+		self.resnet.fc = nn.Linear(512 * (4 if self.block == 'BottleNeck' else 1), self.nJoints * 2)
 	def forward(self, x):
 		return self.resnet(x)
