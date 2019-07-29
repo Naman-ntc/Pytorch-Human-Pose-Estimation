@@ -86,7 +86,7 @@ class Trainer(object):
 
                         if mode == 'train':
                                 loss.backward()
-                                if (epoch+1)%self.opts.mini_batch_count==0:
+                                if (batch_idx+1)%self.opts.mini_batch_count==0:
                                         self.optimizer.step()
                                         self.optimizer.zero_grad()
                                         if self.opts.DEBUG:
